@@ -152,8 +152,8 @@ export default function Home() {
           <h1 className="text-4xl font-light mb-6">Contact Us</h1>
           <p className="text-lg mb-4">We&apos;d love to hear from you! Whether you have questions, feedback, or just want to say hi, feel free to reach out.</p>
           <div className="text-center space-y-4">
-            <p className="text-lg">Phone: <a href="tel:(956) 600-3877" className="underline hover:text-primary">(123) 456-7890</a></p>
-            <p className="text-lg">IG/FB:: <a href="mailto:info@mile3pizza.com" className="underline hover:text-primary">@MILETHREEPIZZA</a></p>
+            <p className="text-lg">Phone: <a href="tel:(956) 600-3877" className="underline hover:text-primary">(956) 600-3877</a></p>
+            <p className="text-lg">IG/FB: <a href="mailto:info@mile3pizza.com" className="underline hover:text-primary">@MILETHREEPIZZA</a></p>
             <p className="text-lg">Address: <a href="address: 2005 W. MILE THREE RD STE 1500 MISSION, TX 78573" className="underline hover:text-primary">2005 W. MILE THREE RD STE 1500 MISSION, TX 78573</a></p>
           </div>
           <div className="w-full max-w-4xl h-96 mt-8">
