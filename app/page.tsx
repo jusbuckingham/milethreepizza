@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-col items-center justify-center space-y-16 p-8 bg-accent speckled-bg">
         {/* Home Section */}
-        <section id="home" className="w-full flex flex-col items-center text-center space-y-8 mb-12">
+        <section id="home" className="w-full flex flex-col items-center text-center space-y-8 mb-12 text-black">
           <h1 className="text-5xl font-light mb-6">Welcome to Mile3Pizza!</h1>
           <p className="text-lg">Where every slice tells a story of quality, passion, and flavor.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -148,7 +148,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="w-full flex flex-col items-center text-center space-y-8 mb-12">
+        <section id="contact" className="w-full flex flex-col items-center text-center space-y-8 mb-12 text-black">
           <h1 className="text-4xl font-light mb-6">Contact Us</h1>
           <p className="text-lg mb-4">We&apos;d love to hear from you! Whether you have questions, feedback, or just want to say hi, feel free to reach out.</p>
           <div className="text-center space-y-4">
