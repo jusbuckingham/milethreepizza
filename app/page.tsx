@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <main className="flex flex-col items-center justify-center space-y-16 p-8 bg-accent">
+      <main className="flex flex-col items-center justify-center space-y-16 p-8 bg-accent speckled-bg">
         {/* Home Section */}
         <section id="home" className="w-full flex flex-col items-center text-center space-y-8 mb-12">
-          <h1 className="text-5xl font-light mb-6 text-secondary">Welcome to Mile3Pizza!</h1>
-          <p className="text-lg text-secondary">Where every slice tells a story of quality, passion, and flavor.</p>
+          <h1 className="text-5xl font-light mb-6">Welcome to Mile3Pizza!</h1>
+          <p className="text-lg">Where every slice tells a story of quality, passion, and flavor.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[1, 2, 3, 4, 5, 6].map((index) => (
               <motion.div
@@ -45,7 +45,7 @@ export default function Home() {
         </section>
 
         {/* Menu Section */}
-        <section id="menu" className="w-full flex flex-col items-center text-center space-y-8 mb-12">
+        <section id="menu" className="w-full flex flex-col items-center text-center space-y-8 mb-12 ">
           <h1 className="text-4xl font-light mb-6 text-black">Our Menu</h1>
           <p className="text-lg text-black mb-4">Explore our selection of mouth-watering pizzas, subs, pastas, and more. We use only the freshest ingredients to create a memorable culinary experience.</p>
           <div className="space-y-12 w-full max-w-4xl">
@@ -149,12 +149,12 @@ export default function Home() {
 
         {/* Contact Section */}
         <section id="contact" className="w-full flex flex-col items-center text-center space-y-8 mb-12">
-          <h1 className="text-4xl font-light mb-6 text-secondary">Contact Us</h1>
-          <p className="text-lg text-secondary mb-4">We&apos;d love to hear from you! Whether you have questions, feedback, or just want to say hi, feel free to reach out.</p>
+          <h1 className="text-4xl font-light mb-6">Contact Us</h1>
+          <p className="text-lg mb-4">We&apos;d love to hear from you! Whether you have questions, feedback, or just want to say hi, feel free to reach out.</p>
           <div className="text-center space-y-4">
-            <p className="text-lg text-secondary">Phone: <a href="tel:(123) 456-7890" className="underline hover:text-primary">(123) 456-7890</a></p>
-            <p className="text-lg text-secondary">Email: <a href="mailto:info@mile3pizza.com" className="underline hover:text-primary">info@mile3pizza.com</a></p>
-            <p className="text-lg text-secondary">Address: 123 Pizza Street, Pizzatown, USA</p>
+            <p className="text-lg">Phone: <a href="tel:(123) 456-7890" className="underline hover:text-primary">(123) 456-7890</a></p>
+            <p className="text-lg">Email: <a href="mailto:info@mile3pizza.com" className="underline hover:text-primary">info@mile3pizza.com</a></p>
+            <p className="text-lg">Address: 123 Pizza Street, Pizzatown, USA</p>
           </div>
           <div className="w-full max-w-4xl h-96 mt-8">
             <iframe
