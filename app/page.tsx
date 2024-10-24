@@ -152,13 +152,13 @@ export default function Home() {
           <h1 className="text-4xl font-light mb-6">Contact Us</h1>
           <p className="text-lg mb-4">We&apos;d love to hear from you! Whether you have questions, feedback, or just want to say hi, feel free to reach out.</p>
           <div className="text-center space-y-4">
-            <p className="text-lg">Phone: <a href="tel:(123) 456-7890" className="underline hover:text-primary">(123) 456-7890</a></p>
-            <p className="text-lg">Email: <a href="mailto:info@mile3pizza.com" className="underline hover:text-primary">info@mile3pizza.com</a></p>
-            <p className="text-lg">Address: 123 Pizza Street, Pizzatown, USA</p>
+            <p className="text-lg">Phone: <a href="tel:(956) 600-3877" className="underline hover:text-primary">(123) 456-7890</a></p>
+            <p className="text-lg">IG/FB:: <a href="mailto:info@mile3pizza.com" className="underline hover:text-primary">@MILETHREEPIZZA</a></p>
+            <p className="text-lg">Address: <a href="address: 2005 W. MILE THREE RD STE 1500 MISSION, TX 78573" className="underline hover:text-primary">2005 W. MILE THREE RD STE 1500 MISSION, TX 78573</a></p>
           </div>
           <div className="w-full max-w-4xl h-96 mt-8">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.951106509114!2d-122.08424928468385!3d37.42206597982565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb24c2f34597b%3A0x5c7b4e401b36b43!2s123%20Pizza%20Street%2C%20Pizzatown%2C%20USA!5e0!3m2!1sen!2sus!4v1679054522309!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4513.202240570593!2d-98.34778055493665!3d26.26182415671413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a8d0e414ce89%3A0xef8a32f02d6d6cb2!2s2005%20W%20Mile%203%20Rd%20STE%201500%2C%20Mission%2C%20TX%2078573!5e0!3m2!1sen!2sus!4v1729792077986!5m2!1sen!2sus"
               width="100%"
               height="100%"
               style={{ border: 0 }}
