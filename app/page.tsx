@@ -3,6 +3,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -22,9 +23,21 @@ export default function Home() {
                 transition={{ duration: 0.3 }}
               >
                 {index === 6 ? (
-                  <img src="/images/garlic-knots.png" alt="Garlic Knots" className="w-full h-full object-cover" />
+                  <Image
+                    src="/images/garlic-knots.png"
+                    alt="Garlic Knots"
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
                 ) : (
-                  <img src={`/images/pizza-${index}.png`} alt={`Pizza ${index}`} className="w-full h-full object-cover" />
+                  <Image
+                    src={`/images/pizza-${index}.png`}
+                    alt={`Pizza ${index}`}
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
                 )}
               </motion.div>
             ))}
@@ -41,15 +54,15 @@ export default function Home() {
               <h2 className="text-3xl font-semibold mb-4 text-black">NY Style Pizza</h2>
               <p className="text-lg font-semibold text-black">Whole Cheese Pizza (Additional toppings $1)</p>
               <ul className="text-lg mb-4 text-black">
-                <li>10" - $6</li>
-                <li>12" - $7</li>
-                <li>14" - $8</li>
+                <li>10&quot; - $6</li>
+                <li>12&quot; - $7</li>
+                <li>14&quot; - $8</li>
               </ul>
               <p className="text-lg font-semibold text-black">Whole Specialty Pizza (Meat Eater, Veggie Lover, Supreme, Hawaiian, Alfredo)</p>
               <ul className="text-lg mb-4 text-black">
-                <li>10" - $10</li>
-                <li>12" - $12</li>
-                <li>14" - $14</li>
+                <li>10&quot; - $10</li>
+                <li>12&quot; - $12</li>
+                <li>14&quot; - $14</li>
               </ul>
               <p className="text-lg text-black">By the Slice (Cheese) - $2.25 (Additional toppings $0.25)</p>
             </motion.div>
@@ -59,12 +72,12 @@ export default function Home() {
               <h2 className="text-3xl font-semibold mb-4 text-black">Stuffed Pizza</h2>
               <p className="text-lg font-semibold text-black">Build Your Own (Up to 3 Toppings)</p>
               <ul className="text-lg mb-4 text-black">
-                <li>14" - $16</li>
+                <li>14&quot; - $16</li>
                 <li>Additional toppings - $1.50 each</li>
               </ul>
               <p className="text-lg font-semibold text-black">Whole Specialty Pizza (Meat Eater, Veggie Lover, Alfredo)</p>
               <ul className="text-lg mb-4 text-black">
-                <li>14" - $18</li>
+                <li>14&quot; - $18</li>
               </ul>
               <p className="text-lg text-black">By the Slice (Meat Eater, Veggie Lover, Alfredo) - $4</p>
             </motion.div>
@@ -82,11 +95,11 @@ export default function Home() {
             {/* Hot Subs */}
             <motion.div className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
               <h2 className="text-3xl font-semibold mb-4 text-black">Hot Subs</h2>
-              <p className="text-lg text-black text-black">Our hot subs are served on house-made rolls, perfect for a hearty meal on the go.</p>
+              <p className="text-lg text-black">Our hot subs are served on house-made rolls, perfect for a hearty meal on the go.</p>
               <p className="text-lg text-black">Meatball Sub (5 Meatballs, Mozzarella, Marinara) - $8</p>
               <p className="text-lg text-black">Ham + Cheese Sub (Deli Ham, Mozzarella, Mayo) - $7</p>
               <p className="text-lg text-black">Veggie Sub (Spinach, Peppers, Onions, Black Olives, Mushrooms) - $6</p>
-              <p className="text-sm italic text-black">(Subs come on house-made 8" rolls + chips)</p>
+              <p className="text-sm italic text-black">(Subs come on house-made 8&quot; rolls + chips)</p>
             </motion.div>
 
             {/* Pasta */}
@@ -149,7 +162,7 @@ export default function Home() {
               width="100%"
               height="100%"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Mile3Pizza Location"
