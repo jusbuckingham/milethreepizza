@@ -147,8 +147,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="w-full flex flex-col items-center text-center space-y-8 mb-12 text-black">
+                {/* Contact Section */}
+                <section id="contact" className="w-full flex flex-col items-center text-center space-y-8 mb-12 text-black">
           <h1 className="text-4xl font-light mb-6">Contact Us</h1>
           <p className="text-lg mb-4">We&apos;d love to hear from you! Whether you have questions, feedback, or just want to say hi, feel free to reach out.</p>
           <div className="text-center space-y-4">
