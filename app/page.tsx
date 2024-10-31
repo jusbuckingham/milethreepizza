@@ -2,6 +2,7 @@
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import OrderModal from "../components/OrderModal";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -129,6 +130,7 @@ const menuItems: MenuItem[] = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
+      <OrderModal />
       <Navbar />
       <main className="flex flex-col items-center justify-center space-y-16 p-8">
         <Section
