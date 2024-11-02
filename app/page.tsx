@@ -191,6 +191,9 @@ function Section({ id, title, description, items, contacts, imageSection, mapSrc
                 alt={image.alt}
                 width={400}
                 height={400}
+                placeholder="blur"
+                blurDataURL="/images/placeholder.png"
+                quality={75}
                 className="w-full h-full object-cover"
               />
             </motion.div>

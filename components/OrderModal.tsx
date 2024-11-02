@@ -3,7 +3,6 @@ import Modal from "react-modal";
 
 export default function OrderModal() {
   const [isOpen, setIsOpen] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -13,15 +12,6 @@ export default function OrderModal() {
       } else {
         console.warn("App element with id '__next' not found.");
       }
-
-      // Check if the screen width is mobile-sized
-      const handleResize = () => {
-        setIsMobile(window.innerWidth <= 600);
-      };
-
-      handleResize(); // Initial check
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
 
@@ -66,7 +56,7 @@ export default function OrderModal() {
       >
         &times;
       </button>
-      <h2 className={isMobile ? "mobileTextColor" : "defaultTextColor"}>
+      <h2 className="text-xl font-semibold text-gray-800 md:text-gray-900">
         Order Now and Earn Rewards!
       </h2>
       <div style={{ marginTop: '20px' }}>
