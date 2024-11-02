@@ -19,6 +19,10 @@ export default function OrderModal() {
     setIsOpen(false);
   }
 
+  const handleOrderClick = () => {
+    window.open("https://link.clover.com/urlshortener/hHVWhr", "_blank");
+  };
+
   return (
     <Modal
       isOpen={isOpen}
@@ -71,7 +75,7 @@ export default function OrderModal() {
             borderRadius: '8px',
             cursor: 'pointer',
           }}
-          onClick={() => alert("Order Delivery Clicked")}
+          onClick={handleOrderClick}
         >
           Order Delivery
         </button>
@@ -86,7 +90,7 @@ export default function OrderModal() {
             borderRadius: '8px',
             cursor: 'pointer',
           }}
-          onClick={() => alert("Order Pickup Clicked")}
+          onClick={handleOrderClick}
         >
           Order Pickup
         </button>

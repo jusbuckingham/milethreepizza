@@ -40,24 +40,18 @@ interface SectionProps {
 const menuItems: MenuItem[] = [
   {
     title: "NY Style Pizza",
-    description: "Whole Cheese Pizza (Additional toppings $1)",
+    description: "Classic meets cool with our NY-style pies. Crispy, thin, and loaded with flavor. Want to make it yours? Extra toppings are just a buck away.",
     sizes: [
       { size: "10\"", price: "$6" },
       { size: "12\"", price: "$7" },
       { size: "14\"", price: "$8" },
     ],
-    specialties: [
-      "Meat Eater",
-      "Veggie Lover",
-      "Supreme",
-      "Hawaiian",
-      "Alfredo",
-    ],
-    bySlice: "By the Slice (Cheese) - $2.25 (Additional toppings $0.25)",
+    specialties: ["Meat Eater", "Veggie Lover", "Supreme", "Hawaiian", "Alfredo"],
+    bySlice: "By the Slice (Cheese) - $2.25 (Extra toppings $0.25 each)",
   },
   {
     title: "Stuffed Pizza",
-    description: "Build Your Own (Up to 3 Toppings)",
+    description: "Feeling bold? Go big with our stuffed pies. Customize with up to three toppings for that one-of-a-kind pizza bliss.",
     sizes: [{ size: "14\"", price: "$16" }],
     additionalToppings: "$1.50 each",
     specialties: ["Meat Eater", "Veggie Lover", "Alfredo"],
@@ -66,7 +60,7 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "Calzone + Stromboli",
-    description: "Indulge in our freshly baked calzones and strombolis, filled with the toppings you love.",
+    description: "Folded, baked, and oozing with goodness. Whether you're team Calzone or Stromboli, we've got you covered.",
     items: [
       { name: "Calzone (Up to 3 Toppings)", price: "$6.50" },
       { name: "Stromboli (Up to 3 Toppings)", price: "$6.50" },
@@ -75,29 +69,29 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "Hot Subs",
-    description: "Our hot subs are served on house-made rolls, perfect for a hearty meal on the go.",
+    description: "Sandwiches that mean business. Served hot on house-made rolls, these subs bring the heat and the flavor.",
     items: [
-      { name: "Meatball Sub", description: "(5 Meatballs, Mozzarella, Marinara)", price: "$8" },
-      { name: "Ham + Cheese Sub", description: "(Deli Ham, Mozzarella, Mayo)", price: "$7" },
-      { name: "Veggie Sub", description: "(Spinach, Peppers, Onions, Black Olives, Mushrooms)", price: "$6" },
+      { name: "Meatball Sub", description: "5 hearty meatballs, melted mozzarella, marinara goodness.", price: "$8" },
+      { name: "Ham + Cheese Sub", description: "Deli ham, mozzarella, a touch of mayo for the perfect bite.", price: "$7" },
+      { name: "Veggie Sub", description: "A garden's worth of fresh veggies on a roll.", price: "$6" },
     ],
     note: "(Subs come on house-made 8\" rolls + chips)",
   },
   {
     title: "Pasta",
-    description: "Pasta dishes that satisfy your cravings with rich sauces and savory flavors.",
+    description: "Comfort food, redefined. Dive into a bowl of our freshly prepared pasta dishes, crafted to satisfy your cravings.",
     items: [
-      { name: "Classic Marinara", description: "(Red Tomato Sauce with Basil)", price: "$8" },
-      { name: "House Alfredo", description: "(White Creamy Sauce)", price: "$8" },
-      { name: "House Mari-Fredo", description: "(Pink Creamy Tomato Sauce)", price: "$8" },
-      { name: "Handmade Lasagna", description: "(Vegetarian Option Available)", price: "$10" },
+      { name: "Classic Marinara", description: "Rich red tomato sauce with basil vibes.", price: "$8" },
+      { name: "House Alfredo", description: "Creamy, dreamy, and oh-so-satisfying.", price: "$8" },
+      { name: "House Mari-Fredo", description: "A creamy pink sauce that blends the best of both worlds.", price: "$8" },
+      { name: "Handmade Lasagna", description: "Layers of love. Vegetarian option available.", price: "$10" },
     ],
     extras: "Add Chicken - $3 | Add Meatballs - $4",
     note: "(All pasta served with garlic knot)",
   },
   {
     title: "Salads",
-    description: "Fresh, crisp salads to complement your meal or enjoy on their own.",
+    description: "Fresh, crisp, and made to order. Our salads are more than just a sidekick – they’re a flavor experience.",
     items: [
       { name: "Caesar Salad", sizes: [{ size: "Small", price: "$3" }, { size: "Large", price: "$6" }] },
       { name: "Garden Salad", sizes: [{ size: "Small", price: "$3" }, { size: "Large", price: "$6" }] },
@@ -107,18 +101,18 @@ const menuItems: MenuItem[] = [
   },
   {
     title: "Sides",
-    description: "Perfect additions to your meal, including wings, garlic knots, and more.",
+    description: "Because every great pizza needs a sidekick. Pick your favorite and elevate your meal.",
     items: [
-      { name: "Wings", description: "(6 Pc - Buffalo, BBQ, Plain)", price: "$8" },
-      { name: "Garlic Knots", description: "(4 Pc)", price: "$2" },
+      { name: "Wings", description: "6 pieces – choose Buffalo, BBQ, or Plain.", price: "$8" },
+      { name: "Garlic Knots", description: "4 buttery, garlicky bites of heaven.", price: "$2" },
       { name: "Garlic Cheese Bread", price: "$4" },
       { name: "Meatballs", price: "$4" },
-      { name: "Side Sauces", description: "(Ranch, Blue Cheese, Italian, Buffalo, Garlic Butter, Marinara)", price: "$0.50" },
+      { name: "Side Sauces", description: "Ranch, Blue Cheese, Italian, Buffalo, Garlic Butter, Marinara.", price: "$0.50" },
     ],
   },
   {
     title: "Drinks",
-    description: "Quench your thirst with our variety of refreshing beverages.",
+    description: "Thirsty? We’ve got just the thing to keep you refreshed.",
     items: [
       { name: "12 oz Soda Can", price: "$1.50" },
       { name: "Water Bottle", price: "$1.50" },
@@ -133,6 +127,19 @@ export default function Home() {
       <OrderModal />
       <Navbar />
       <main className="flex flex-col items-center justify-center space-y-16 p-8">
+        
+        {/* Logo */}
+        <div className="flex flex-col items-center space-y-4">
+          <Image
+            src="/images/Mile3Pizza-Logo.png"
+            alt="Mile3Pizza Logo"
+            width={120}
+            height={120}
+            className="mb-4"
+          />
+          <h1 className="text-4xl font-bold text-red-600">Mile3Pizza</h1>
+        </div>
+
         <Section
           id="home"
           title="Welcome to Mile3Pizza!"
@@ -177,6 +184,17 @@ function Section({ id, title, description, items, contacts, imageSection, mapSrc
       <h1 className="text-4xl font-bold text-red-600">{title}</h1>
       <p className="text-lg text-gray-800">{description}</p>
 
+      {id === "home" || id === "menu" ? (
+        <a
+          href="https://link.clover.com/urlshortener/hHVWhr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-6 py-3 bg-red-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-red-700 transition-colors duration-200"
+        >
+          Order Now
+        </a>
+      ) : null}
+
       {imageSection && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
           {images.map((image, index) => (
@@ -201,7 +219,7 @@ function Section({ id, title, description, items, contacts, imageSection, mapSrc
         </div>
       )}
 
-      {items && items.map((item, index) => (
+      {items?.map((item, index) => (
         <motion.div
           key={index}
           className="p-4 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
