@@ -16,8 +16,8 @@ Welcome to the **Mile3Pizza** repository! This project is a sleek, modern web ap
 ## ✨ Features
 
 - **Landing Page**: A welcoming introduction that highlights Mile3Pizza’s unique qualities and story.
-- **Auto-Advancing Image Carousel**: Interactive carousel in the homepage, showcasing enticing images of popular menu items with automatic transitions and manual navigation options.
+- **Image Gallery**: A grid-based layout displaying enticing images of popular menu items. The gallery is responsive, adapting to different screen sizes and providing an intuitive visual experience without the need for manual navigation.
 - **Menu Section**: Comprehensive display of the restaurant's offerings, including NY-style pizzas, stuffed pizzas, calzones, subs, pasta, salads, sides, and drinks with descriptions, prices, and additional details.
 - **Contact Section**: Essential contact information including phone number, address, social media links, and an integrated map for easy navigation.
 - **Dynamic Animations**: Animated interactions powered by Framer Motion, enhancing the user experience with smooth and engaging transitions.
-- **Responsive Design**: Fully responsive layout that adapts seamlessly to any screen size, providing a great experience on desktops, tablets, and mobile devices.0
+- **Responsive Design**: Fully responsive layout that adapts seamlessly to any screen size, providing a great experience on desktops, tablets, and mobile devices.
