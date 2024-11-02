@@ -20,4 +20,4 @@ Welcome to the **Mile3Pizza** repository! This project is a sleek, modern web ap
 - **Menu Section**: Comprehensive display of the restaurant's offerings, including NY-style pizzas, stuffed pizzas, calzones, subs, pasta, salads, sides, and drinks with descriptions, prices, and additional details.
 - **Contact Section**: Essential contact information including phone number, address, social media links, and an integrated map for easy navigation.
 - **Dynamic Animations**: Animated interactions powered by Framer Motion, enhancing the user experience with smooth and engaging transitions.
-- **Responsive Design**: Fully responsive layout that adapts seamlessly to any screen size, providing a great experience on desktops, tablets, and mobile devices.
+- **Responsive Design**: Fully responsive layout that adapts seamlessly to any screen size, providing a great experience on desktops, tablets, and mobile devices.0

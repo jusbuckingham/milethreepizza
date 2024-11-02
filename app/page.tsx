@@ -3,9 +3,8 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import OrderModal from "../components/OrderModal";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect, useCallback } from "react";
 
 interface MenuItem {
   title: string;
@@ -164,7 +163,6 @@ export default function Home() {
 }
 
 function Section({ id, title, description, items, contacts, imageSection, mapSrc }: SectionProps) {
-  const [currentImage, setCurrentImage] = useState(0);
   const images = [
     { src: "/images/pizza-1.png", alt: "Pizza 1" },
     { src: "/images/pizza-2.png", alt: "Pizza 2" },
@@ -174,49 +172,29 @@ function Section({ id, title, description, items, contacts, imageSection, mapSrc
     { src: "/images/garlic-knots.png", alt: "Garlic Knots" },
   ];
 
-  const nextImage = useCallback(() => {
-    setCurrentImage((prev) => (prev + 1) % images.length);
-  }, [images.length]);
-
-  const prevImage = () => setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
-
-  useEffect(() => {
-    const interval = setInterval(nextImage, 3000); // Change image every 3 seconds
-    return () => clearInterval(interval); // Clear interval on component unmount
-  }, [nextImage]);
-
   return (
     <section id={id} className="w-full max-w-4xl flex flex-col items-center text-center space-y-8 mb-12 px-4 py-8 border-b border-gray-300">
       <h1 className="text-4xl font-bold text-red-600">{title}</h1>
       <p className="text-lg text-gray-800">{description}</p>
 
       {imageSection && (
-        <div className="relative w-full max-w-md h-auto flex items-center justify-center overflow-hidden rounded-lg shadow-lg">
-          <button onClick={prevImage} className="absolute left-0 z-10 p-2 bg-white rounded-full shadow-md">
-            &#9664;
-          </button>
-          <AnimatePresence>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+          {images.map((image, index) => (
             <motion.div
-              key={currentImage}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="w-full h-full flex justify-center items-center"
+              key={index}
+              className="w-full h-64 flex items-center justify-center rounded-lg overflow-hidden shadow-lg"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             >
               <Image
-                src={images[currentImage].src}
-                alt={images[currentImage].alt}
-                width={500} // Fixed width
-                height={500} // Fixed height to make it square
-                objectFit="contain" // Ensure the full image is displayed
-                className="rounded-lg"
+                src={image.src}
+                alt={image.alt}
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
               />
             </motion.div>
-          </AnimatePresence>
-          <button onClick={nextImage} className="absolute right-0 z-10 p-2 bg-white rounded-full shadow-md">
-            &#9654;
-          </button>
+          ))}
         </div>
       )}
 
