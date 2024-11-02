@@ -3,6 +3,7 @@ import Modal from "react-modal";
 
 export default function OrderModal() {
   const [isOpen, setIsOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -12,6 +13,15 @@ export default function OrderModal() {
       } else {
         console.warn("App element with id '__next' not found.");
       }
+
+      // Check if the screen width is mobile-sized
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 600);
+      };
+
+      handleResize(); // Initial check
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
 
@@ -40,7 +50,7 @@ export default function OrderModal() {
           backgroundColor: 'rgba(0, 0, 0, 0.5)',
         },
       }}
-      ariaHideApp={false} // Remove this line if you want to use `setAppElement` correctly
+      ariaHideApp={false}
     >
       <button
         onClick={closeModal}
@@ -56,7 +66,9 @@ export default function OrderModal() {
       >
         &times;
       </button>
-      <h2>Order Now and Earn Rewards!</h2>
+      <h2 className={isMobile ? "mobileTextColor" : "defaultTextColor"}>
+        Order Now and Earn Rewards!
+      </h2>
       <div style={{ marginTop: '20px' }}>
         <button
           style={{

@@ -54,3 +54,14 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+/* Text color for the "Order Now and Earn Rewards!" section */
+.defaultTextColor {
+  color: #333; /* Default color for larger screens */
+}
+
+@media (max-width: 600px) {
+  .mobileTextColor {
+    color: #ff0000; /* Bright red for better visibility on mobile */
+  }
+}
