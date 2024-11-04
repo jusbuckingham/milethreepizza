@@ -265,7 +265,7 @@ function Section({ id, title, description, items, contacts, imageSection, mapSrc
               target="_blank" rel="noopener noreferrer"
             >
               {contact.type === "Phone" && <span className="text-red-500 text-2xl">📞</span>}
-              {contact.type === "IG/FB" && <span className="text-red-500 text-2xl">📷</span>}
+              {contact.type === "IG" && <span className="text-red-500 text-2xl">📷</span>}
               {contact.type === "Address" && <span className="text-red-500 text-2xl">📍</span>}
               <span className="text-lg font-medium">{contact.type}: {contact.value}</span>
             </a>
