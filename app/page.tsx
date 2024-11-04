@@ -158,7 +158,7 @@ export default function Home() {
           description="We'd love to hear from you! Whether you have questions, feedback, or just want to say hi, feel free to reach out."
           contacts={[
             { type: "Phone", value: "(956) 600-3877", link: "tel:(956) 600-3877" },
-            { type: "IG/FB", value: "@MILETHREEPIZZA", link: "mailto:info@mile3pizza.com" },
+            { type: "IG", value: "@MILETHREEPIZZA", link: "https://www.instagram.com/MILETHREEPIZZA/" },
             { type: "Address", value: "2005 W. MILE THREE RD STE 1500 MISSION, TX 78573", link: "https://www.google.com/maps?q=2005+W.+MILE+THREE+RD+STE+1500+MISSION,+TX+78573" },
           ]}
           mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4513.202240570593!2d-98.34778055493665!3d26.26182415671413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a8d0e414ce89%3A0xef8a32f02d6d6cb2!2s2005%20W%20Mile%203%20Rd%20STE%201500%2C%20Mission%2C%20TX%2078573!5e0!3m2!1sen!2sus!4v1729792077986!5m2!1sen!2sus"
