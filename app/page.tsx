@@ -1,8 +1,7 @@
 "use client";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import OrderModal from "../components/OrderModal";
+import Accessibility from "../components/Accessibility";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -125,9 +124,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <OrderModal />
-      <Navbar />
+      <Accessibility />
       <main className="flex flex-col items-center justify-center space-y-16 p-8">
-        
         {/* Logo */}
         <div className="flex flex-col items-center space-y-4">
           <Image
@@ -164,7 +162,6 @@ export default function Home() {
           mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4513.202240570593!2d-98.34778055493665!3d26.26182415671413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a8d0e414ce89%3A0xef8a32f02d6d6cb2!2s2005%20W%20Mile%203%20Rd%20STE%201500%2C%20Mission%2C%20TX%2078573!5e0!3m2!1sen!2sus!4v1729792077986!5m2!1sen!2sus"
         />
       </main>
-      <Footer />
     </div>
   );
 }
