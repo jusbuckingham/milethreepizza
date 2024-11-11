@@ -69,7 +69,7 @@ export default function OrderModal() {
             padding: '10px 20px',
             margin: '10px',
             fontSize: '16px',
-            backgroundColor: '#ff0000',
+            backgroundColor: '#28a745', // Green color
             color: '#ffffff',
             border: 'none',
             borderRadius: '8px',
@@ -77,22 +77,7 @@ export default function OrderModal() {
           }}
           onClick={handleOrderClick}
         >
-          Order Delivery
-        </button>
-        <button
-          style={{
-            padding: '10px 20px',
-            margin: '10px',
-            fontSize: '16px',
-            backgroundColor: '#ff0000',
-            color: '#ffffff',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-          }}
-          onClick={handleOrderClick}
-        >
-          Order Pickup
+          Order Now
         </button>
       </div>
     </Modal>

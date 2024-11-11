@@ -186,7 +186,7 @@ function Section({ id, title, description, items, contacts, imageSection, mapSrc
           href="https://link.clover.com/urlshortener/hHVWhr"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-6 py-3 bg-red-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-red-700 transition-colors duration-200"
+          className="inline-block px-6 py-3 bg-green-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-red-700 transition-colors duration-200"
         >
           Order Now
         </a>

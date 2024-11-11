@@ -47,7 +47,7 @@ export default function Navbar() {
           href="https://link.clover.com/urlshortener/hHVWhr"
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-4 px-4 py-2 bg-red-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-red-700 transition-colors duration-200"
+          className="ml-4 px-4 py-2 bg-green-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-green-700 transition-colors duration-200"
         >
           Order Now
         </a>
@@ -85,7 +85,7 @@ export default function Navbar() {
             href="https://link.clover.com/urlshortener/hHVWhr"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-red-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-red-700 transition-colors duration-200"
+            className="px-4 py-2 bg-green-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-green-700 transition-colors duration-200"
             onClick={toggleMobileMenu}
           >
             Order Now
