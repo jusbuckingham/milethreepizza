@@ -25,7 +25,6 @@ export default function Navbar() {
               height={50} 
               className="h-auto w-auto" 
             />
-            <span className="text-2xl font-bold text-white font-title ml-2">Mile3Pizza</span>
           </a>
         </Link>
       </div>

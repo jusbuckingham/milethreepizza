@@ -135,7 +135,6 @@ export default function Home() {
             height={120}
             className="mb-4"
           />
-          <h1 className="text-4xl font-bold text-red-600">Mile3Pizza</h1>
         </div>
 
         <Section
