@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;600;700&display=swap');
+/* Import Google Fonts (ASCII quotes) */
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;400;600;700&display=swap");
 
 :root {
   --background: #ffffff;
@@ -11,8 +12,8 @@
   --secondary-color: #333333;
 
   /* Font Variables */
-  --font-title: 'Abril Fatface', serif;
-  --font-body: 'Montserrat', sans-serif;
+  --font-title: "Abril Fatface", serif;
+  --font-body: "Montserrat", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,7 +32,12 @@ body {
 }
 
 /* Typography Styling */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-title);
   color: var(--primary-color);
   letter-spacing: 0.5px;
@@ -79,8 +85,8 @@ a:hover {
 }
 
 .speckled-bg {
-  background-color: #EDEAE0;
-  background-image: url('/images/speckled-texture.png'); /* Use an actual speckle texture image */
+  background-color: #edeae0;
+  background-image: url("/images/speckled-texture.png");
   background-repeat: repeat;
   background-size: contain;
 }

@@ -1,9 +1,8 @@
-// Accessibility.tsx
 "use client";
-import React, { useEffect, useState } from 'react';
-import AccessibilityIcon from './AccessibilityIcon'; // Adjust the path as needed
 
-// Define the shape of accessibility settings
+import React, { useEffect, useState } from "react";
+import AccessibilityIcon from "./AccessibilityIcon";
+
 interface AccessibilitySettings {
   highlightLinks: boolean;
   colorShift: boolean;
@@ -11,9 +10,9 @@ interface AccessibilitySettings {
   highContrast: boolean;
   focusEnabled: boolean;
   cursorEnabled: boolean;
-  textSize: '1em' | '1.25em';
-  spacing: 'normal' | 'wide';
-  font: 'sans-serif' | 'serif';
+  textSize: "1em" | "1.25em";
+  spacing: "normal" | "wide";
+  font: "sans-serif" | "serif";
   imagesVisible: boolean;
   showPageStructure: boolean;
   guideEnabled: boolean;
@@ -27,22 +26,22 @@ const Accessibility: React.FC = () => {
     highContrast: false,
     focusEnabled: false,
     cursorEnabled: false,
-    textSize: '1em',
-    spacing: 'normal',
-    font: 'sans-serif',
+    textSize: "1em",
+    spacing: "normal",
+    font: "sans-serif",
     imagesVisible: true,
     showPageStructure: false,
     guideEnabled: false,
   };
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isHidden, setIsHidden] = useState<boolean>(false);
-  const [isRemoved, setIsRemoved] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [isRemoved, setIsRemoved] = useState(false);
   const [settings, setSettings] = useState<AccessibilitySettings>(defaultSettings);
 
-  // Load settings from localStorage on mount
+  // Load saved settings from localStorage on mount
   useEffect(() => {
-    const savedSettings = localStorage.getItem('accessibilitySettings');
+    const savedSettings = localStorage.getItem("accessibilitySettings");
     if (savedSettings) {
       setSettings(JSON.parse(savedSettings));
     }
@@ -50,96 +49,96 @@ const Accessibility: React.FC = () => {
 
   // Save settings to localStorage whenever they change
   useEffect(() => {
-    localStorage.setItem('accessibilitySettings', JSON.stringify(settings));
+    localStorage.setItem("accessibilitySettings", JSON.stringify(settings));
   }, [settings]);
 
-  // Apply accessibility settings
+  // Apply accessibility settings to the DOM
   useEffect(() => {
-    // Highlight Links
-    document.querySelectorAll('a').forEach((link) => {
-      const element = link as HTMLElement;
-      element.style.backgroundColor = settings.highlightLinks ? '#FFFF00' : '';
+    // Highlight links
+    document.querySelectorAll("a").forEach((link) => {
+      (link as HTMLElement).style.backgroundColor = settings.highlightLinks ? "#FFFF00" : "";
     });
 
-    // Text Size
+    // Text size
     document.documentElement.style.fontSize = settings.textSize;
 
-    // High Contrast and Color Shift
-    let filter = '';
-    if (settings.highContrast) filter += ' contrast(2)';
-    if (settings.colorShift) filter += ' invert(1)';
-    document.documentElement.style.filter = filter.trim() || 'none';
+    // High contrast & color shift
+    let filterStr = "";
+    if (settings.highContrast) filterStr += " contrast(2)";
+    if (settings.colorShift) filterStr += " invert(1)";
+    document.documentElement.style.filter = filterStr.trim() || "none";
 
-    // Letter Spacing
-    document.documentElement.style.letterSpacing = settings.spacing === 'wide' ? '0.1em' : 'normal';
+    // Letter spacing
+    document.documentElement.style.letterSpacing =
+      settings.spacing === "wide" ? "0.1em" : "normal";
 
-    // Font Family
+    // Font family
     document.documentElement.style.fontFamily = settings.font;
 
     // Animations
-    document.documentElement.style.animation = settings.animationsEnabled ? '' : 'none';
+    document.documentElement.style.animation = settings.animationsEnabled ? "" : "none";
 
-    // Focus Outline
-    document.querySelectorAll('*').forEach((element) => {
-      const htmlElement = element as HTMLElement;
-      htmlElement.style.outline = settings.focusEnabled ? '2px solid #0000FF' : '';
+    // Focus outline
+    document.querySelectorAll("*").forEach((element) => {
+      const htmlEl = element as HTMLElement;
+      htmlEl.style.outline = settings.focusEnabled ? "2px solid #0000FF" : "";
     });
 
     // Cursor
-    document.body.style.cursor = settings.cursorEnabled ? 'pointer' : '';
+    document.body.style.cursor = settings.cursorEnabled ? "pointer" : "";
 
-    // Images Visibility
-    document.querySelectorAll('img').forEach((img) => {
+    // Images visibility
+    document.querySelectorAll("img").forEach((img) => {
       const htmlImg = img as HTMLElement;
-      htmlImg.style.display = settings.imagesVisible ? 'block' : 'none';
+      htmlImg.style.display = settings.imagesVisible ? "block" : "none";
     });
 
-    // Guide (Reading Line)
-    const guideId = 'reading-guide-line';
-    let guideLine = document.getElementById(guideId) as HTMLElement | null;
+    // Reading guide line
+    const guideId = "reading-guide-line";
+    let guideLine = document.getElementById(guideId);
 
     if (settings.guideEnabled) {
       if (!guideLine) {
-        guideLine = document.createElement('div');
+        guideLine = document.createElement("div");
         guideLine.id = guideId;
-        guideLine.style.position = 'fixed';
-        guideLine.style.top = '50%';
-        guideLine.style.left = '0';
-        guideLine.style.width = '100%';
-        guideLine.style.height = '2px';
-        guideLine.style.backgroundColor = 'red';
-        guideLine.style.zIndex = '1000';
-        guideLine.style.pointerEvents = 'none';
+        guideLine.style.position = "fixed";
+        guideLine.style.top = "50%";
+        guideLine.style.left = "0";
+        guideLine.style.width = "100%";
+        guideLine.style.height = "2px";
+        guideLine.style.backgroundColor = "red";
+        guideLine.style.zIndex = "1000";
+        guideLine.style.pointerEvents = "none";
         document.body.appendChild(guideLine);
       }
-    } else {
-      if (guideLine) {
-        guideLine.remove();
-      }
+    } else if (guideLine) {
+      guideLine.remove();
     }
   }, [settings]);
 
-  const togglePageStructure = () => {
+  // Toggle showing page structure
+  function togglePageStructure() {
     setSettings((prev) => ({ ...prev, showPageStructure: !prev.showPageStructure }));
-  };
+  }
 
-  const resetSettings = () => {
+  // Reset to default settings
+  function resetSettings() {
     setSettings(defaultSettings);
-  };
+  }
 
-  const handleSettingChange = <K extends keyof AccessibilitySettings>(
+  // Helper to change a single setting
+  function handleSettingChange<K extends keyof AccessibilitySettings>(
     key: K,
     value: AccessibilitySettings[K]
-  ) => {
+  ) {
     setSettings((prev) => ({ ...prev, [key]: value }));
-  };
+  }
 
-  const renderPageStructure = () => {
-    const landmarks = Array.from(
-      document.querySelectorAll<HTMLElement>('header, nav, main, footer')
-    );
-    const headings = Array.from(document.querySelectorAll<HTMLElement>('h1, h2, h3, h4, h5, h6'));
-    const links = Array.from(document.querySelectorAll<HTMLElement>('a'));
+  // Render an outline of the page structure (landmarks, headings, links)
+  function renderPageStructure() {
+    const landmarks = Array.from(document.querySelectorAll<HTMLElement>("header, nav, main, footer"));
+    const headings = Array.from(document.querySelectorAll<HTMLElement>("h1, h2, h3, h4, h5, h6"));
+    const links = Array.from(document.querySelectorAll<HTMLElement>("a"));
 
     return (
       <div className="text-left">
@@ -147,9 +146,9 @@ const Accessibility: React.FC = () => {
           <>
             <h3 className="font-semibold text-gray-800">Landmarks</h3>
             <ul className="list-disc pl-5">
-              {landmarks.map((element, index) => (
-                <li key={index} className="text-sm text-gray-700">
-                  {element.tagName.toLowerCase()} (id: {element.id || 'N/A'})
+              {landmarks.map((el, i) => (
+                <li key={i} className="text-sm text-gray-700">
+                  {el.tagName.toLowerCase()} (id: {el.id || "N/A"})
                 </li>
               ))}
             </ul>
@@ -159,10 +158,9 @@ const Accessibility: React.FC = () => {
           <>
             <h3 className="font-semibold text-gray-800 mt-4">Headings</h3>
             <ul className="list-disc pl-5">
-              {headings.map((element, index) => (
-                <li key={index} className="text-sm text-gray-700">
-                  {element.tagName.toLowerCase()}:{' '}
-                  {element.textContent ? element.textContent.trim() : 'N/A'}
+              {headings.map((el, i) => (
+                <li key={i} className="text-sm text-gray-700">
+                  {el.tagName.toLowerCase()}: {el.textContent ? el.textContent.trim() : "N/A"}
                 </li>
               ))}
             </ul>
@@ -172,9 +170,9 @@ const Accessibility: React.FC = () => {
           <>
             <h3 className="font-semibold text-gray-800 mt-4">Links</h3>
             <ul className="list-disc pl-5">
-              {links.map((element, index) => (
-                <li key={index} className="text-sm text-gray-700">
-                  {element.getAttribute('href') || 'N/A'}
+              {links.map((el, i) => (
+                <li key={i} className="text-sm text-gray-700">
+                  {el.getAttribute("href") || "N/A"}
                 </li>
               ))}
             </ul>
@@ -182,7 +180,7 @@ const Accessibility: React.FC = () => {
         )}
       </div>
     );
-  };
+  }
 
   if (isRemoved) {
     return null;
@@ -190,8 +188,8 @@ const Accessibility: React.FC = () => {
 
   return (
     <div
-      className={`fixed bottom-4 z-50 transition-transform transform ${
-        isHidden ? 'translate-x-full right-0' : 'right-4'
+      className={`fixed bottom-4 z-50 transition-transform ${
+        isHidden ? "translate-x-full right-0" : "right-4"
       }`}
     >
       {isHidden ? (
@@ -204,13 +202,16 @@ const Accessibility: React.FC = () => {
         </button>
       ) : (
         <>
+          {/* Toggle Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-3 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="p-3 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400"
             aria-label="Toggle Accessibility Widget"
           >
             <AccessibilityIcon />
           </button>
+
+          {/* Options Panel */}
           {isOpen && (
             <div
               className="bg-white shadow-lg rounded-lg p-4 mt-2 w-80 max-h-[80vh] overflow-y-auto"
@@ -246,130 +247,147 @@ const Accessibility: React.FC = () => {
                   </button>
                 </div>
               </div>
+
+              {/* Options Grid */}
               <div className="grid grid-cols-2 gap-4">
                 {/* Focus Toggle */}
                 <button
-                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.focusEnabled ? 'bg-blue-200' : 'bg-gray-200'
-                  }`}
-                  onClick={() => handleSettingChange('focusEnabled', !settings.focusEnabled)}
+                  onClick={() => handleSettingChange("focusEnabled", !settings.focusEnabled)}
                   aria-pressed={settings.focusEnabled}
+                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                    settings.focusEnabled ? "bg-blue-200" : "bg-gray-200"
+                  }`}
                 >
-                  {settings.focusEnabled ? 'Unfocus' : 'Focus'}
+                  {settings.focusEnabled ? "Unfocus" : "Focus"}
                 </button>
+
                 {/* Cursor Toggle */}
                 <button
-                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.cursorEnabled ? 'bg-blue-200' : 'bg-gray-200'
-                  }`}
-                  onClick={() => handleSettingChange('cursorEnabled', !settings.cursorEnabled)}
+                  onClick={() => handleSettingChange("cursorEnabled", !settings.cursorEnabled)}
                   aria-pressed={settings.cursorEnabled}
+                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                    settings.cursorEnabled ? "bg-blue-200" : "bg-gray-200"
+                  }`}
                 >
-                  {settings.cursorEnabled ? 'Normal Cursor' : 'Bigger Cursor'}
+                  {settings.cursorEnabled ? "Normal Cursor" : "Bigger Cursor"}
                 </button>
+
                 {/* Highlight Links */}
                 <button
-                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.highlightLinks ? 'bg-blue-200' : 'bg-gray-200'
-                  }`}
-                  onClick={() => handleSettingChange('highlightLinks', !settings.highlightLinks)}
+                  onClick={() => handleSettingChange("highlightLinks", !settings.highlightLinks)}
                   aria-pressed={settings.highlightLinks}
+                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                    settings.highlightLinks ? "bg-blue-200" : "bg-gray-200"
+                  }`}
                 >
-                  {settings.highlightLinks ? 'Remove Highlight' : 'Highlight Links'}
+                  {settings.highlightLinks ? "Remove Highlight" : "Highlight Links"}
                 </button>
+
                 {/* High Contrast */}
                 <button
-                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.highContrast ? 'bg-blue-200' : 'bg-gray-200'
-                  }`}
-                  onClick={() => handleSettingChange('highContrast', !settings.highContrast)}
+                  onClick={() => handleSettingChange("highContrast", !settings.highContrast)}
                   aria-pressed={settings.highContrast}
+                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                    settings.highContrast ? "bg-blue-200" : "bg-gray-200"
+                  }`}
                 >
-                  {settings.highContrast ? 'Normal Contrast' : 'Contrast'}
+                  {settings.highContrast ? "Normal Contrast" : "Contrast"}
                 </button>
+
                 {/* Color Shift */}
                 <button
-                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.colorShift ? 'bg-blue-200' : 'bg-gray-200'
-                  }`}
-                  onClick={() => handleSettingChange('colorShift', !settings.colorShift)}
+                  onClick={() => handleSettingChange("colorShift", !settings.colorShift)}
                   aria-pressed={settings.colorShift}
+                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                    settings.colorShift ? "bg-blue-200" : "bg-gray-200"
+                  }`}
                 >
-                  {settings.colorShift ? 'Normal Colors' : 'Invert Colors'}
+                  {settings.colorShift ? "Normal Colors" : "Invert Colors"}
                 </button>
+
                 {/* Animations Toggle */}
                 <button
-                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.animationsEnabled ? 'bg-blue-200' : 'bg-gray-200'
-                  }`}
-                  onClick={() => handleSettingChange('animationsEnabled', !settings.animationsEnabled)}
+                  onClick={() =>
+                    handleSettingChange("animationsEnabled", !settings.animationsEnabled)
+                  }
                   aria-pressed={!settings.animationsEnabled}
-                >
-                  {settings.animationsEnabled ? 'Disable Animation' : 'Enable Animation'}
-                </button>
-                {/* Text Size */}
-                <button
                   className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.textSize === '1.25em' ? 'bg-blue-200' : 'bg-gray-200'
+                    settings.animationsEnabled ? "bg-blue-200" : "bg-gray-200"
                   }`}
-                  onClick={() => handleSettingChange('textSize', '1.25em')}
-                  aria-pressed={settings.textSize === '1.25em'}
+                >
+                  {settings.animationsEnabled ? "Disable Animation" : "Enable Animation"}
+                </button>
+
+                {/* Text Size: Larger */}
+                <button
+                  onClick={() => handleSettingChange("textSize", "1.25em")}
+                  aria-pressed={settings.textSize === "1.25em"}
+                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                    settings.textSize === "1.25em" ? "bg-blue-200" : "bg-gray-200"
+                  }`}
                 >
                   Bigger Text
                 </button>
+
+                {/* Text Size: Normal */}
                 <button
+                  onClick={() => handleSettingChange("textSize", "1em")}
+                  aria-pressed={settings.textSize === "1em"}
                   className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.textSize === '1em' ? 'bg-blue-200' : 'bg-gray-200'
+                    settings.textSize === "1em" ? "bg-blue-200" : "bg-gray-200"
                   }`}
-                  onClick={() => handleSettingChange('textSize', '1em')}
-                  aria-pressed={settings.textSize === '1em'}
                 >
                   Normal Text
                 </button>
+
                 {/* Font Family */}
                 <button
+                  onClick={() => handleSettingChange("font", "serif")}
+                  aria-pressed={settings.font === "serif"}
                   className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.font === 'serif' ? 'bg-blue-200' : 'bg-gray-200'
+                    settings.font === "serif" ? "bg-blue-200" : "bg-gray-200"
                   }`}
-                  onClick={() => handleSettingChange('font', 'serif')}
-                  aria-pressed={settings.font === 'serif'}
                 >
                   Serif Fonts
                 </button>
+
                 {/* Images Visibility */}
                 <button
-                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.imagesVisible ? 'bg-gray-200' : 'bg-blue-200'
-                  }`}
-                  onClick={() => handleSettingChange('imagesVisible', !settings.imagesVisible)}
+                  onClick={() => handleSettingChange("imagesVisible", !settings.imagesVisible)}
                   aria-pressed={settings.imagesVisible}
+                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                    settings.imagesVisible ? "bg-gray-200" : "bg-blue-200"
+                  }`}
                 >
-                  {settings.imagesVisible ? 'Hide Images' : 'Show Images'}
+                  {settings.imagesVisible ? "Hide Images" : "Show Images"}
                 </button>
+
                 {/* Reading Line (Guide) */}
                 <button
-                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.guideEnabled ? 'bg-blue-200' : 'bg-gray-200'
-                  }`}
-                  onClick={() => handleSettingChange('guideEnabled', !settings.guideEnabled)}
+                  onClick={() => handleSettingChange("guideEnabled", !settings.guideEnabled)}
                   aria-pressed={settings.guideEnabled}
-                >
-                  {settings.guideEnabled ? 'Disable Reading Line' : 'Enable Reading Line'}
-                </button>
-                {/* Tooltips (Page Structure) */}
-                <button
                   className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                    settings.showPageStructure ? 'bg-blue-200' : 'bg-gray-200'
+                    settings.guideEnabled ? "bg-blue-200" : "bg-gray-200"
                   }`}
+                >
+                  {settings.guideEnabled ? "Disable Reading Line" : "Enable Reading Line"}
+                </button>
+
+                {/* Page Structure */}
+                <button
                   onClick={togglePageStructure}
                   aria-pressed={settings.showPageStructure}
+                  className={`p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+                    settings.showPageStructure ? "bg-blue-200" : "bg-gray-200"
+                  }`}
                 >
-                  {settings.showPageStructure ? 'Hide Tooltips' : 'Show Tooltips'}
+                  {settings.showPageStructure ? "Hide Tooltips" : "Show Tooltips"}
                 </button>
+
                 {/* Reset Button */}
                 <button
-                  className="p-2 col-span-2 bg-red-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-red-400"
                   onClick={resetSettings}
+                  className="p-2 col-span-2 bg-red-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-red-400"
                 >
                   Reset to Default
                 </button>
@@ -378,6 +396,7 @@ const Accessibility: React.FC = () => {
           )}
         </>
       )}
+      {/* Page Structure Dialog */}
       {settings.showPageStructure && (
         <div
           className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
