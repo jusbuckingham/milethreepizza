@@ -28,7 +28,3 @@ Welcome to the **MileThreePizza** repository! This project delivers a sleek, int
 - **🛒 Online Ordering Integration** – Plan to incorporate a Clover POS API for seamless online ordering and payment.
 - **🌐 Multi-Language Support** – Expand accessibility with multilingual options.
 - **🖤 Dark Mode Toggle** – Improve usability with a customizable light/dark mode.
-
----
-
-Let me know if you'd like any modifications! 🚀
