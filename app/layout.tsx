@@ -19,8 +19,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Mile3Pizza - Fresh, Delicious Pizza",
-  description: "Order the best NY-style pizza at Mile3Pizza. Check out our menu and contact us for a delicious pizza experience.",
+  title: "MilethreePizza - Fresh, Delicious Pizza",
+  description: "Order the best NY-style pizza at MilethreePizza. Check out our menu and contact us for a delicious pizza experience.",
 };
 
 export default function RootLayout({
