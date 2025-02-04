@@ -191,7 +191,7 @@ export default function Home() {
         <div className="flex flex-col items-center">
           <Image
             src="/images/Mile3Pizza-Logo.png"
-            alt="Mile3Pizza Logo"
+            alt="MileThreePizza Logo"
             width={500}
             height={500}
           />
@@ -199,7 +199,7 @@ export default function Home() {
 
         <Section
           id="home"
-          title="Welcome to Mile3Pizza!"
+          title="Welcome to MileThreePizza!"
           description="Where every slice tells a story of quality, passion, and flavor."
           imageSection
         />
@@ -393,7 +393,7 @@ function Section({
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Mile3Pizza Location"
+            title="MileThreePizza Location"
           ></iframe>
         </div>
       )}

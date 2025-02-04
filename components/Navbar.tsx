@@ -22,7 +22,7 @@ export default function Navbar() {
         <Link href="#home" className="flex items-center">
           <Image
             src="/images/Mile3Pizza-Logo.png"
-            alt="Mile3Pizza Logo"
+            alt="MileThreePizza Logo"
             width={50}
             height={50}
             className="h-auto w-auto"
